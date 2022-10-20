@@ -12,5 +12,12 @@
 # echo 'export PATH-"$PATH:/usr/local/bin/"' >> .bashrc     ## Записываем в bashrc (только для centos 8):
 ```
 
+#### Commands
+```
+Смотреть пул
+# ceph osd pool ls
+
+
+```
 
 https://docs.ceph.com/en/quincy/install/
