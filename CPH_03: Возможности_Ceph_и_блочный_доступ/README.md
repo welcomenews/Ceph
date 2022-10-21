@@ -96,5 +96,9 @@ $ sudo lvremove /dev/test/test
 
 https://losst.pro/sozdanie-i-nastrojka-lvm-linux
 
+https://docs.ceph.com/en/quincy/radosgw/index.html
 
+https://archive.fosdem.org/2018/schedule/event/cephfs_gateways/attachments/slides/2636/export/events/attachments/cephfs_gateways/slides/2636/cephfs_samba_and_nfs.pdf
+
+https://docs.openstack.org/swift/latest/s3_compat.html
 
