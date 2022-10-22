@@ -15,6 +15,9 @@
 #### Commands
 ```
 
+Смотерь состояние кластера
+# ceph health detail
+
 Проверяем количество хостов:
 # ceph orch host ls
 
