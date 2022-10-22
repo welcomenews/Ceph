@@ -37,6 +37,9 @@
 Для получения детализированной информации о кластере Ceph и OSD
 # ceph osd dump
 
+Наблюдение за MDS
+# ceph mds stat
+
 просмотр карты CRUSH
 # ceph osd crush dump
 
