@@ -32,9 +32,7 @@
 # scp /etc/ceph/ceph.conf client:/etc/ceph/ceph.conf
 
 Генерируем ключ. Он будет ограниченным, чтобы клиент ходил только на пул RBD.
-# ceph auth get-or-create client.rbd mon 'allow r' osd 'allow class-read object_prefix rbd_children, allow rwx 
-
-pool=rbd'
+# ceph auth get-or-create client.rbd mon 'allow r' osd 'allow class-read object_prefix rbd_children, allow rwx pool=rbd'
 
 # ceph auth get-or-create client.rbd | ssh user@client sudo tee /etc/ceph/keyring
 
