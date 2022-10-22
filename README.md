@@ -28,7 +28,9 @@
 # rbd --image disk01 -p rbd info
 
 Смотреть количество PG\PGP
-# ceph osd pool get <имя волума> (например cephfs.volume1.data)
+# ceph osd pool get <имя волума> pgp_num (например cephfs.volume1.data)
+# ceph osd pool get <имя волума> pg_num (например cephfs.volume1.data)
+
 
 
 ```
