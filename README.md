@@ -14,8 +14,21 @@
 
 #### Commands
 ```
+
+Проверяем количество хостов:
+# ceph orch host ls
+
+Инфа о кластере
+# ceph -s
+
 Смотреть пул
 # ceph osd pool ls
+
+Смотреть инфу о соданном rbd диске disk01
+# rbd --image disk01 -p rbd info
+
+Смотреть количество PG\PGP
+# ceph osd pool get <имя волума> (например cephfs.volume1.data)
 
 
 ```
