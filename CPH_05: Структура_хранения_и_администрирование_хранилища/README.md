@@ -29,45 +29,47 @@
 9. Создайте директорию /test и смонтируйте в нее диск.
 
 
+
+
 ```
 На сервере 1
 
+Создаем пул с 32 pg:
 # ceph osd pool create iscsi 32 32
 
+Создаем application c типом RBD и диск с именем “DISK1”:
 # ceph osd pool application enable iscsi rbd
+# rbd --pool iscsi create DISK1 --size=5120
 
-# rbd --pool iscsi create iscsi --size=5120
-
+Разворачиваем iscsi gateway: в trusted_ip_list указываем IP кластерных хостов, в расположении — ноды 1 и 2:
 # ceph orch apply iscsi iscsi admin01 passw01 --placement ceph1,ceph2 --trusted_ip_list _10.129.0.20,10.129.0.27,10.129.0.35_
 
+воспользоваться JQ и отфильтровать вывод имя контейнера
 yum install jq
-
 # cephadm ls --no-detail | jq '.[].name'
 
+Через ‘Cephadm shell’ можно войти в него
 # cephadm enter -n iscsi.iscsi.ceph2.fnelz
 
+Запустим оболочку управления iscsi:
 # gwcli
 
+Так мы создаем “iqn”:
 /> cd iscsi-targets
  > create iqn.2022-01.local.ceph.iscsi-qw:iscsi-iqw
 
-
+Теперь создадим ему два шлюза:
 > cd iqn.2022-01.local.ceph.iscsi-qw:iscsi-iqw/gateways
-
 > create ceph2.local _10.129.0.27_ skipchecks=true
-
 > create ceph3.local _10.129.0.35_ skipchecks=true
 
 Теперь мы идем в диски и приаттачиваем ранее созданный диск:
-
 > cd /disks
-
-> attach iscsi/iscsi
+> attach iscsi/DISK1
 
 Создаем клиента (инициатор):
 
 > cd /iscsi-targets/iqn.2022-01.local.ceph.iscsi-qw:iscsi-iqw/hosts
-
 > create iqn.2022-01.ceph.iscsi:iscsi-client
 
 зададим ему login и password (для аутентификации):
@@ -76,7 +78,7 @@ yum install jq
 
 Объявляем диск для клиента:
 
-> disk add iscsi/iscsi
+> disk add iscsi/DISK1
 
 > exit
 
@@ -86,6 +88,10 @@ apt install open-iscsi multipath-tools
 
 Идем в /etc/iscsi/iscsid.conf, ставим логин и пароль, который установили, а в /etc/iscsi/initiatorname.iscsi напишем имя инициатора iqn.2022-01.ceph.iscsi:iscsi-client
 
+vim /etc/iscsi/iscsid.conf
+
+node.session.auth.username = iscsiadmin
+node.session.auth.password = iscsipassword
 
 vim /etc/multipath.conf
 
@@ -131,4 +137,14 @@ sudo mkdir /test
 
 
 ```
+
+https://sidmid.ru/ceph-полезные-команды/
+
+https://docs.ceph.com/en/quincy/rbd/rbd-mirroring/
+
+https://docs.ceph.com/en/latest/dev/cephfs-mirroring/
+
+https://access.redhat.com/documentation/en-us/red_hat_ceph_storage/4/html/block_device_guide/the-ceph-iscsi-gateway
+
+
 
