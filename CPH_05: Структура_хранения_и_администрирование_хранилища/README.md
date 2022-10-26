@@ -86,7 +86,8 @@ yum install jq
 
 apt install open-iscsi multipath-tools
 
-Идем в /etc/iscsi/iscsid.conf, ставим логин и пароль, который установили, а в /etc/iscsi/initiatorname.iscsi напишем имя инициатора iqn.2022-01.ceph.iscsi:iscsi-client
+Идем в /etc/iscsi/iscsid.conf, ставим логин и пароль, который установили, а в /etc/iscsi/initiatorname.iscsi напишем имя инициатора 
+iqn.2022-01.ceph.iscsi:iscsi-client
 
 vim /etc/iscsi/iscsid.conf
 
