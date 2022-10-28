@@ -39,10 +39,9 @@
 Делаем пользователя
 # radosgw-admin user create --display-name="test admin" --uid=test
 
-
 "user": "test",
-     "access_key": "Z9M8...",
-     "secret_key": "OHEZ..." 
+"access_key": "Z9M8...",
+"secret_key": "OHEZ..." 
 
 Их копируем в отдельный файл /root/answer
 
