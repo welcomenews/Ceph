@@ -114,6 +114,18 @@ T: Это общая емкость
 
 
 
+Какая именно placement group в неконсистентном состоянии
+# ceph health detail
+
+Чтобы узнать, какую именно ошибку выдал Scrub
+# rados list-inconsistent-obj {PG} | jq
+
+Когда есть primary-копия, и она корректная, можно запустить восстановление командой
+# ceph pg repair {PG}
+
+
+
+
 ```
 https://sidmid.ru/ceph-полезные-команды/
 
