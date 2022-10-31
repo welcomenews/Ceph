@@ -135,6 +135,19 @@ T: Это общая емкость
 Эти флаги блокируют новый Scrub, но уже запущенные проверки не отклоняются и будут завершены.
 
 
+Останавливать процессы восстановления и перемещения данных с флагами.  флаг nobackfill и norecover работают одинаково.
+# ceph osd set nobackfill и ceph osd set norecover
+# ceph osd set norebalance
+
+снимем флаг norecover
+# ceph osd unset norecover
+
+остановим одну из OSD и отправим её в out, чтобы запустился процесс recovery.
+# systemctl stop ceph-osd@0
+# ceph osd out 0
+
+Флаг pause по сути останавливает клиентское io. Никто из клиентов не сможет ни читать, ни писать
+# ceph osd set pause
 
 
 
