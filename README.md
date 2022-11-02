@@ -159,6 +159,22 @@ osd_max_backfill
 Остановим сервис OSD
 # systemctl stop ceph-osd@${ID}
 
+Удалим OSD из CRUSH map:
+# ceph osd crush remove osd.${ID}
+
+Удалим пользователя OSD:
+# ceph auth del osd.${ID}
+
+удалим саму OSD:
+# ceph osd rm osd.${ID}
+
+исключить из карты OSD сервер hv-2
+# ceph osd crush rm hv-2
+
+Удаляем mon с сервера hv-2
+ceph-deploy mon destroy hv-2
+
+
 
 
 
