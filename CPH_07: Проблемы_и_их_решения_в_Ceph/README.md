@@ -78,6 +78,18 @@ ceph config generate-minimal-conf > ceph.conf
 
 ```
 
+https://habr.com/ru/company/oleg-bunin/blog/431536/
+
+https://habr.com/ru/company/southbridge/blog/536884/
+
+https://habr.com/ru/company/southbridge/blog/534912/
+
+https://habr.com/ru/company/flant/blog/495870/
+
+https://docs.ceph.com/en/nautilus/install/upgrading-ceph/
+
+https://cloud.garr.it/support/kb/ceph/restore-ceph-from-mon-disaster/
+
 
 
 
