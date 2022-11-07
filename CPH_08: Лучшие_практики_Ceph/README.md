@@ -20,3 +20,6 @@ ceph osd pool set cephfs_data size 3
 
 ceph osd pool set cephfs_metadata size 3
 
+=== 
+
+https://documentation.suse.com/sbp/all/html/SBP-rook-ceph-kubernetes/index.html
