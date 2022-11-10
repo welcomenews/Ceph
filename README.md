@@ -172,9 +172,14 @@ osd_max_backfill
 # ceph osd crush rm hv-2
 
 Удаляем mon с сервера hv-2
-ceph-deploy mon destroy hv-2
+# ceph-deploy mon destroy hv-2
 
-
+Отключение встроенного мониторинга:
+# ceph orch rm grafana
+# ceph orch rm prometheus - -force  
+# ceph orch rm node-exporter
+# ceph orch rm alertmanager
+# ceph mgr module disable prometheus
 
 
 
