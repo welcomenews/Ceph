@@ -72,6 +72,9 @@ kubectl get pvc -A
 посмотреть на Ceph, что создался rbd
 rbd ls -p kube
 
+Подробная информация о созданом rbd
+rbd -p kube info <имя_которое_отобразилось_в_rbd_ls>
+
 <--
 
 
