@@ -15,6 +15,9 @@
 #### Commands
 ```
 
+Смотреть ID кластера.
+# ceph fsid
+
 Смотерь состояние кластера
 # ceph health detail
 
