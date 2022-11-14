@@ -10,7 +10,7 @@
 - "v2:<локальный ip-адрес 1 машины кластера>:3300/0,v1:<локальный ip-адрес 1 машины кластера>:6789/0"
 - "v2:<локальный ip-адрес 2 машины кластера>:3300/0,v1:<локальный ip-адрес 2 машины кластера>:6789/0"
 - "v2:<локальный ip-адрес 3 машины кластера>:3300/0,v1:<локальный ip-адрес 3 машины кластера>:6789/0"
-Информация о вашем кластере содержится в файле /etc/ceph/ceph.conf на первой ноде кластера.
+> Информация о вашем кластере содержится в файле /etc/ceph/ceph.conf на первой ноде кластера.
 4. На машине k3s с помощью файла rbd.yaml и helm chart ceph-csi/ceph-csi-rbd установите компоненты ceph в k3s с созданием неймспейса. helm upgrade -i ceph-csi-rbd ceph-csi/ceph-csi-rbd -f rbd/rbd.yml -n ceph-csi-rbd --create-namespace
 5. На машине k3s в файл в папке rbd/secret.yaml запишите полученный от ceph ключ для пользователя kube и примените его, создавая секрет. kubectl apply -f rbd/secret.yaml
 6. На машине k3s в файл в папке rbd/storageclass.yaml поменяйте clusterID: 6c1cc102-e97c-11ec-930c-080027c10f66 на свой и примените его для создания storage class. kubectl apply -f rbd/storageclass.yaml
