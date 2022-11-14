@@ -100,6 +100,22 @@ ceph -s
 ```
 
 
-
 https://habr.com/ru/company/southbridge/blog/519130/
+
+https://www.youtube.com/watch?v=DteNn-1f-WI
+
+https://loft.sh/blog/kubernetes-persistent-volumes-examples-and-best-practices/
+
+https://habr.com/ru/company/flant/blog/424211/
+
+https://computingforgeeks.com/monitoring-ceph-cluster-with-prometheus-and-grafana/
+
+https://github.com/SUSE/grafana-dashboards-ceph
+
+https://grafana.com/orgs/cristicalin/dashboards
+
+
+
+
+
 
